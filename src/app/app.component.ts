@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 
 export class AppComponent {
-  title: string;
+  title: string = '';
   y : boolean;
   isComplete: boolean;
   todos: TodoModule[] = [
@@ -19,8 +19,15 @@ export class AppComponent {
   ]
   onSubmit(form: NgForm){
     let todo = new TodoModule(Guid.create(), this.title, false)
-    this.todos.push(todo);
-    form.resetForm();
+    this.title === null ? alert('Wrong') : 
+      this.todos.push(todo);
+      console.log(this.title)
+      form.resetForm();
+    
+      
+    
+    // console.log(this.title)
+    
   }
 
   onCheck(id: Guid, title: string, isComplete: boolean){
